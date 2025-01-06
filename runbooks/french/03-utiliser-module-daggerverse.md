@@ -19,7 +19,7 @@ Cherchez un module avec le mot clé [go](https://daggerverse.dev/search?q=go) co
 
 Pour la suite, nous allons utiliser le module qui correspond à nos besoins :
 
-![Module Dagger vito](./dagger-module-go-vito.jpg)
+![Module Dagger vito](../dagger-module-go-vito.jpg)
 
 Voici le lien direct : https://daggerverse.dev/mod/github.com/vito/daggerverse/go@f7223d2d82fb91622cbb7954177388d995a98d59
 

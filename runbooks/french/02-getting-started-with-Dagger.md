@@ -115,10 +115,9 @@ Exemple, pour augmenter la verbosité des traces pendant l'exécution, vous pouv
 > Avec le temps, on s'y fait bien.
 
 A la fin de l'exécution de la commande, vous allez voir ce message :
-![](dagger-cloud-traces.png)
+![](../dagger-cloud-traces.png)
 
-Par défaut, Dagger va essayer d'envoyer les traces dans le Dagger cloud. Vous pouvez désactiver ce comportement,  
-en valorisant une des variables d'environnement suivantes `NOTHANKS`, `SHUTUP`, `GOAWAY` or `STOPIT` :
+Par défaut, Dagger va essayer d'envoyer les traces dans le Dagger cloud. Vous pouvez désactiver ce comportement, en valorisant une des variables d'environnement suivantes `NOTHANKS`, `SHUTUP`, `GOAWAY` or `STOPIT`:
 
 ```bash
 export STOPIT=1
@@ -142,10 +141,10 @@ Afin d'exploiter plus facilement les traces, nous allons utiliser le **Dagger cl
 
 Pour réactiver l'envoi de traces, le plus simple est de supprimer la variable d'environnement :
 ```bash
-unset STOPIT=1
+unset STOPIT
 ```
 
-Afin de pouvoir visualiser les traces, vous devez créer un compte sur le [Dagger cloud](https://docs.dagger.io/manuals/user/cloud-get-started).
+Afin de pouvoir visualiser les traces, vous devez créer un compte (gratuit) sur le [Dagger cloud](https://docs.dagger.io/manuals/user/cloud-get-started).
 
 > [!TIP]
 > Afin de faciliter la suite du TP, si vous décidez de créer un compte **Dagger cloud**, le plus simple est d'utiliser votre compte GitHub (le bouton `Sign in with GitHub`).
@@ -236,7 +235,7 @@ La dernière étape est de publier notre application sur `ttl.sh` :
 dagger call publish --source=.
 ```
 
-Testez l'image publiée (ID est l'identifiant unique de l'image) :
+Testez l'image publiée (`ID` est l'identifiant unique de l'image) :
 ```bash
 docker run --rm --detach --publish 8080:666 ttl.sh/hello-<ID>
 ```
