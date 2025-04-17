@@ -46,7 +46,7 @@ dagger -m go functions
 Another solution is to read directly the souce code: https://github.com/vito/daggerverse/blob/main/go/main.go
 
 > [!NOTE]
-> Here, we use a module written in Golang. We can use module written in other supported languages (Typescript or Python) and still install in our module - regardless of the other modules programming language.
+> Here, we use a module written in Golang. We can use module written in other supported languages (TypeScript or Python) and still install in our module - regardless of the other modules programming language.
 >
 > Also, it is not necessary for the module to be the same language as the source code of the application to be built. We could use the Dagger Go SDK to build a Python application, for example.
 
@@ -54,7 +54,7 @@ Another solution is to read directly the souce code: https://github.com/vito/dag
 
 ### Change BuildEnv function
 
-Add a `builder` field of type `*dagger.Go` to the `Hello` struct:
+Add a `builder` field of type `*dagger.Go` to the `Hello` struct in file `dagger/main.go`:
 ```go
 type Hello struct {
 	builder *dagger.Go
@@ -62,7 +62,7 @@ type Hello struct {
 ```
 This field allows us to use functions exposed by the Go module.
 
-Replace `BuildEnv` function by bellow code in file `dagger/main.go`:
+Replace `BuildEnv` function by bellow code in file same file:
 ```go
 // Build a ready-to-use development environment
 func (m *Hello) BuildEnv() {

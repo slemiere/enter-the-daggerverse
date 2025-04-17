@@ -46,7 +46,7 @@ dagger -m go functions
 Une autre solution est de regarder directement le code source : https://github.com/vito/daggerverse/blob/main/go/main.go
 
 > [!NOTE]
-> Ici on utilise un module programmé en Go. On peut utilisé un modulé écrit dans un autre langage supporté (Typescript ou Python) et l'installer dans notre module, quel que soit le langage de programmation des autres modules.
+> Ici on utilise un module programmé en Go. On peut utiliser un module écrit dans un autre langage supporté (TypeScript ou Python) et l'installer dans notre module, quel que soit le langage de programmation des autres modules.
 >
 > Il n'est pas nécéssaire que la CI soit dans le même langage que le code source de l'application à construire. Nous pourrions utiliser le SDK Go de Dagger pour créer une application Python, par exemple.
 
@@ -54,7 +54,7 @@ Une autre solution est de regarder directement le code source : https://github.c
 
 ### Modifier la fonction BuildEnv
 
-Ajoutez un champ `builder` de type `*dagger.Go` dans la structure `Hello` :
+Ajoutez un champ `builder` de type `*dagger.Go` dans la structure `Hello` dans le ficher `dagger/main.go` :
 ```go
 type Hello struct {
 	builder *dagger.Go
@@ -63,7 +63,7 @@ type Hello struct {
 
 Il va nous permettre de manipuler les fonctions de la structure exposée par le module Go.
 
-Remplacez la fonction `BuildEnv` par le code suivant dans le ficher `dagger/main.go` :
+Remplacez la fonction `BuildEnv` par le code suivant dans le même fichier :
 ```go
 // Build a ready-to-use development environment
 func (m *Hello) BuildEnv() {
@@ -110,13 +110,13 @@ L'option `Static: true` est l'équivalant de `WithEnvVariable("CGO_ENABLED", "0"
 > Il est aussi possible de donner une valeur par défaut.
 
 > [!NOTE]
-> Une convention (non documentée) pour les argument optionnels, est de mettre l'argument dans une structure.
+> Une convention (non documentée) pour les arguments optionnels, est de mettre l'argument dans une structure.
 > Cette structure est celle du module (ici `dagger.Go`).
 >
 > Elle est du format `dagger.<Package><Fonction>Opts`.
 >
 > Ici `dagger.GoBuildOpts` pour utiliser le paramètre `Static`.
-> On lit donc l'argument nommé `Static` est une option `Opts` de la fonction `Build` du module Dagger `Go`.
+> On lit donc : l'argument nommé `Static` est une option `Opts` de la fonction `Build` du module Dagger `Go`.
 
 ### Tester les fonctions utilisant le module Go
 

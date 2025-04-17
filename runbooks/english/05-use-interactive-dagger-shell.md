@@ -69,7 +69,7 @@ By adding `| stdout`, Dagger shell will print stdout of container on terminal st
 # Run Dagger shell in... shell 😮
 
 You can script your Dagger shell from your unix shell, like `cat` command:  
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \
@@ -92,12 +92,12 @@ hello
 ```
 
 Or:
-```
+```bash
 echo 'container | from alpine | with-exec -- sh -c "echo hello" | stdout' | dagger
 ```
 
 Or by writting command in file:  
-```
+```bash
 cat > hello.dsh <<EOF
 container \
 | from alpine \
@@ -111,7 +111,7 @@ dagger hello.dsh
 # Mount a folder or file in container
 
 Now, we want create a file in current dir from container:
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \
@@ -126,7 +126,7 @@ Error: input: container.from.withExec.withDirectory.id process "sh -c echo titi 
 ```
 
 Because, order of parameters is important. Swap lines `with-directory` and `with-exec`:
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \
@@ -138,7 +138,7 @@ EOF
 If you got to the `/workspaces/enter-the-daggerverse/hello-sh` folder, file `test` is not here.
 The folder is like copied in container.
 You must `export` it:
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \

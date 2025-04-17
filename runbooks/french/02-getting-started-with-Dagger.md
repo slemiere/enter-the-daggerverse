@@ -82,7 +82,7 @@ return dag.Container().
 > `ttl.sh` est une registry publique pour Docker afin d'y stocker des images non-critiques de façon temporaire.
 
 > [!WARNING]
-> Le fichier `dagger.gen.go` souffre d'un problème de compilation.
+> Le fichier `dagger.gen.go` apparait comme ayant un problème de compilation dans VSCode (le fichier est rouge).
 > 
 > En changeant le contenu du fichier `dagger/main.go`, l'interface a évolué.
 > 
@@ -216,7 +216,7 @@ Cliquez sur le bouton proposé par VSCode et ajouter `/devoxx` à la fin de l'ur
 > Si vous n'utilisez pas le codespace, ouvrez votre navigateur et entrez l'URL suivante `localhost:8080/devoxx`.
 
 > [!NOTE]
-> Mais d'où vient la comment `as-service` introuvable lorsqu'on lance la commande `dagger --help` ?
+> Mais d'où vient la commande `as-service` introuvable lorsqu'on lance la commande `dagger --help` ?
 >
 > Et bien on le trouve au détour de la documentation dans le [User Manual](https://docs.dagger.io/api/chaining/#start-containers-as-services)
 

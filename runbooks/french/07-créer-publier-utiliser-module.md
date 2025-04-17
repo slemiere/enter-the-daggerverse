@@ -45,7 +45,7 @@ func (m *Renovate) RenovateScan(
 
 Les éléments à votre dispositon pour construire cette fonction :
 
-- La commande docker à implémenter:
+- La commande docker à implémenter :
     ```bash
     docker run -e RENOVATE_TOKEN \
     -e "LOG_LEVEL"=info \
@@ -67,7 +67,7 @@ Les éléments à votre dispositon pour construire cette fonction :
 > - https://docs.dagger.io/manuals/developer/functions/#optional-arguments
 
 > [!NOTE]
-> Pensez à exporter votre PAT GitHub dans votre shell pour vos tests :
+> Pensez à exporter votre PAT (Personnal Access Token) GitHub dans votre shell pour vos tests :
 > ```bash
 > read RENOVATE_TOKEN
 > { paste GitLab access token here }

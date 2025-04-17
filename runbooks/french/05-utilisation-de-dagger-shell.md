@@ -1,6 +1,6 @@
 # Introduction à Dagger Shell
 
-Le 26 Mars 2025, l'équipe de Dagger.io [a annoncé](https://dagger.io/blog/a-shell-for-the-container-age-introducing-dagger-shell) une nouvelle fonctionnalité: un shell interactif pour Dagger.
+Le 26 Mars 2025, l'équipe de Dagger.io [a annoncé](https://dagger.io/blog/a-shell-for-the-container-age-introducing-dagger-shell) une nouvelle fonctionnalité : un shell interactif pour Dagger.
 
 Cette nouvelle fonctionnalité est très pratique pour tester Dagger.
 
@@ -38,7 +38,7 @@ Lorsque vous êtes dans le shell Dagger, vous pouvez utiliser la commande `.help
   ...
 ```
 
-Vous pouvez avoir aussi des informations sur un module ou une comme. Reportez vous à la documentation officiel : [Built-in help](https://docs.dagger.io/features/shell/#built-in-help).
+Vous pouvez avoir aussi des informations sur un module ou une commande. Reportez vous à la documentation officielle : [Built-in help](https://docs.dagger.io/features/shell/#built-in-help).
 
 # Exécuter votre première commande
 
@@ -55,7 +55,7 @@ Container@xxh3:83a64a1566b1bdba
 
 Où est le résultat de la commande `whoami` ?
 
-Ce comportement est normal. Il faut explicitement demande à Dagger de récupérer le résultat (sortie standard) de la commande et de l'afficher. Pour ce faire :
+Ce comportement est normal. Il faut explicitement demander à Dagger de récupérer le résultat (sortie standard) de la commande et de l'afficher. Pour ce faire :
 ```
 container | from alpine | with-exec whoami | stdout
 ```
@@ -65,7 +65,7 @@ En ajoutant  `| stdout`, Dagger affiche la sortie standard de la commande.
 # Exécuter le shell Dagger dans... un shell 😮
 
 Vous pouvez créer un script pour le shell Dagger, comme la commande `cat` :
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \
@@ -88,12 +88,12 @@ hello
 ```
 
 Ou alors, vous pouvez utiliser la commande `echo` :
-```
+```bash
 echo 'container | from alpine | with-exec -- sh -c "echo hello" | stdout' | dagger
 ```
 
 Et même écrire les commandes Dagger dans un fichier :  
-```
+```bash
 cat > hello.dsh <<EOF
 container \
 | from alpine \
@@ -107,7 +107,7 @@ dagger hello.dsh
 # Monter un dossier ou un fichier dans le container exécuté par Dagger
 
 Nous souhaitons créer un fichier dans le répertoire courant du container :
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \
@@ -122,7 +122,7 @@ Error: input: container.from.withExec.withDirectory.id process "sh -c echo titi 
 ```
 
 Oui, car l'ordre des paramètres est important. C'est un peu comme enchainer des commandes dans un shell. Intervertissez les lignes `with-directory` et `with-exec`:
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \
@@ -134,7 +134,7 @@ EOF
 Si vous allez dans le répertoire `/workspaces/enter-the-daggerverse/hello-sh` aucun fichier `test` n'est présent.
 Lorsque vous monter un répertoire dans un container, il est en quelque sorte copié dans le container.
 Il faut donc exporter le fichier avec `export` pour le récupérer dans le répertoire `hello-sh` :
-```
+```bash
 dagger <<EOF
 container \
 | from alpine \
@@ -144,4 +144,4 @@ container \
 EOF
 ```
 
-Maintenant que nous avons tester le shell Dagger, nous allons utiliser un module : [Utiliser un module publié sur Daggerverse avec le shell Dagger](./06-utiliser-module-daggerverse-avec-shell-dagger.md).
+Maintenant que nous avons testé le shell Dagger, nous allons utiliser un module : [Utiliser un module publié sur Daggerverse avec le shell Dagger](./06-utiliser-module-daggerverse-avec-shell-dagger.md).

@@ -82,7 +82,7 @@ return dag.Container().
 > `ttl.sh` is an amazing public Docker repository to store Docker image temporarily. Caution, this repository is public, don't publish any critical images.
 
 > [!WARNING]
-> The `dagger.gen.go` has compilation issue.
+> The `dagger.gen.go` has compilation issue in VSCode (file is red).
 >
 > When we change content of `dagger/main.go` file, public interface changes and the code generation needs to happen again.
 >

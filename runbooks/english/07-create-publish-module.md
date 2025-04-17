@@ -67,7 +67,7 @@ The elements at your disposal to build this function:
 > - https://docs.dagger.io/manuals/developer/functions/#optional-arguments
 
 > [!NOTE]
-> Don't forget to export your GitHub PAT in your shell to run the tests:
+> Don't forget to export your GitHub PAT (Personnal Access Token) in your shell to run the tests:
 > ```bash
 > read RENOVATE_TOKEN
 > { paste GitLab access token here }
